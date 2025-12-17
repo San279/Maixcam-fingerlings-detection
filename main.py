@@ -30,7 +30,7 @@ def btn_event(cap_state, img, cap_frame, results, prev_count):
         results.clear()
     if cap_state:
         cap_frame -= 1
-        objs = detector.detect(img, conf_th = 0.26, iou_th = 0.45)
+        objs = detector.detect(img, conf_th = 0.27, iou_th = 0.45)
         img.draw_string(round(img.width()/2 - 100), img.height() - 40, f"===========", scale=2.5, color=image.COLOR_GREEN, thickness=2)
         for obj in objs:
             count += 1
@@ -48,7 +48,7 @@ def filter_noise(results):
 def main(disp):
     global detector, cap_state, cap_frame
     detector = nn.YOLO11(model="/root/models/model-fish-640.mud", dual_buff = True)
-    cam = camera.Camera(640, 640, detector.input_format())
+    cam = camera.Camera(1280, 1280, detector.input_format())
     cap_state = False
     results = []
     all_results = []
