@@ -30,7 +30,7 @@ def btn_event(cap_state, img, cap_frame, results, prev_count):
         results.clear()
     if cap_state:
         cap_frame -= 1
-        objs = detector.detect(img, conf_th = 0.3, iou_th = 0.45)
+        objs = detector.detect(img, conf_th = 0.32, iou_th = 0.45)
         img.draw_string(round(img.width()/2 - 100), img.height() - 40, f"===========", scale=2.5, color=image.COLOR_GREEN, thickness=2)
         for obj in objs:
             count += 1
